@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:mobilehairdresser_app/constant.dart';
 import 'package:mobilehairdresser_app/models/api_response.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobilehairdresser_app/models/user_adress.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user.dart';
 
@@ -37,7 +38,7 @@ Future<ApiResponse> login (String email, String password) async {
     }
   }
   catch(e) {
-    apiResponse.error = serverError;
+    apiResponse.error = e.toString();
   }
 
   return apiResponse;
@@ -66,7 +67,6 @@ Future<ApiResponse> register (String name, String phone,String email, String pas
       case 200:
         
         apiResponse.data = User.fromJson(jsonDecode(response.body));
-        print(apiResponse.data);
         break;
       case 422:
         final errors = jsonDecode(response.body)['errors'];
@@ -143,3 +143,5 @@ Future<bool> logout() async{
 SharedPreferences preferences = await SharedPreferences.getInstance();
 return await preferences.remove('token');
 }
+
+
