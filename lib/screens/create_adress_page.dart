@@ -42,6 +42,7 @@ class _CreateAdressPageState extends State<CreateAdressPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primaryColor,
         title: Text("Adres Ekle"),
       ),
 

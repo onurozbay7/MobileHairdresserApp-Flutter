@@ -1,6 +1,7 @@
 import 'package:mobilehairdresser_app/constant.dart';
 import 'package:mobilehairdresser_app/models/api_response.dart';
 import 'package:mobilehairdresser_app/screens/login_page.dart';
+import 'package:mobilehairdresser_app/screens/main_page.dart';
 import 'package:mobilehairdresser_app/services/user_service.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class _LoadingState extends State<Loading> {
     else{
       ApiResponse response = await getUserDetail();
       if(response.error == null){
-        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const HomePage()), (route) => false);
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>  MainPage()), (route) => false);
       }
       else if(response.error == unauthorized){
         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);

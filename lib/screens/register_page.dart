@@ -57,8 +57,9 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text('Kayıt Ol'),
         centerTitle: true,
+        backgroundColor: primaryColor,
       ),
       body: Form(
         key: formkey,
